@@ -1,3 +1,4 @@
+package ru.netology.selenium;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
@@ -6,6 +7,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import io.github.bonigarcia.wdm.WebDriverManager;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -14,8 +16,9 @@ class CallbackTest {
 
     @BeforeAll
     static void setUpAll() {
+        WebDriverManager.chromedriver().setup();
+
 // убедитесь, что файл chromedriver.exe расположен именно в каталоге C:\tmp
-        System.setProperty("webdriver.chrome.driver", "./driver/win/chromedriver.exe");
     }
 
     @BeforeEach
